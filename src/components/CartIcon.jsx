@@ -7,7 +7,7 @@ import { FaShoppingCart } from "react-icons/fa";
 const CartIcon = ({count}) => {
   return (
     <div>
-      <Link to='/carrinho' classname='cartIconLink'>
+      <Link to='/carrinho' className='cartIconLink'>
       <FaShoppingCart size={"2rem"} />
       {count>0 && <span className='cartItemCount'>{count}</span>}
       </Link>

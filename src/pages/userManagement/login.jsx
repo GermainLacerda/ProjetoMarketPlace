@@ -10,6 +10,17 @@ const login = () => {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    const email = emailInput.value.trim(); // .trim() remove espaços em branco no início/fim
+    const password = passwordInput.value.trim();
+
+    // 4. Validar os campos
+    if (email === '' || password === '') {
+      alert('Por favor, preencha todos os campos de e-mail e senha.');
+      return; // Interrompe a execução se os campos estiverem vazios
+    }
 
     console.log("Botão de Login clicado! Redirecionando para a página inicial...");
 
@@ -18,8 +29,8 @@ const login = () => {
   return (
     <div className="loginContainer">
       <img src="/Loja-logo.png" alt="" />
-      <div class="auth-container">
-        <form class="auth-form">
+      <div className="auth-container">
+        <form className="auth-form">
           <h2>Entrar</h2>
 
           <label for="email">Email</label>
@@ -29,7 +40,7 @@ const login = () => {
           <input type="password" id="password" placeholder="Digite sua senha" required />
 
           <button onClick={handleLoginClick} type="submit">Login</button>
-          <p class="auth-link">
+          <p className="auth-link">
             <Link to={"/register"}>
               Ainda não tem conta?
               Cadastre-se
