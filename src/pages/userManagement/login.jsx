@@ -1,11 +1,13 @@
-import {React}  from 'react'
+import { React } from 'react'
 import { useNavigate } from 'react-router-dom';
+
+import { Link } from 'react-router-dom'
 
 import './login.css'
 
 const login = () => {
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
 
@@ -28,7 +30,10 @@ const login = () => {
 
           <button onClick={handleLoginClick} type="submit">Login</button>
           <p class="auth-link">
-            Ainda não tem conta? <a href="/register">Cadastre-se</a>
+            <Link to={"/register"}>
+              Ainda não tem conta?
+              Cadastre-se
+            </Link>
           </p>
         </form>
 

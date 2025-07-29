@@ -49,8 +49,12 @@ const NavBar = ({ onFilterChange, onSearchChange, currentSearch , cartItemCount}
           </button> */}
         </form>
         <div className='loginLinksAndCart '>
-          <a href="/login" className='loginLink'><IoIosLogIn />Login</a>
-          <a href="/register" className='loginLink'><PiNotebookDuotone />Cadastro</a>
+          <Link to={"/login"} className='loginLink'>
+            <IoIosLogIn />Login
+          </Link>
+          <Link to={"/register"} className='loginLink'>
+            <PiNotebookDuotone />Cadastro
+          </Link>
           <CartIcon count={cartItemCount}/>
         </div>
       </div>
