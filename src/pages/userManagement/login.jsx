@@ -10,6 +10,7 @@ const login = () => {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
+    event.preventDefault()
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
 
@@ -20,14 +21,19 @@ const login = () => {
     if (email === '' || password === '') {
       alert('Por favor, preencha todos os campos de e-mail e senha.');
       return; // Interrompe a execução se os campos estiverem vazios
+    } 
+
+    if (!email.includes('@')){
+      alert('email invalido');
+      return;
     }
 
-    console.log("Botão de Login clicado! Redirecionando para a página inicial...");
+      navigate('/');
+    }
 
-    navigate('/');
-  };
   return (
     <div className="loginContainer">
+
       <img src="/Loja-logo.png" alt="" />
       <div className="auth-container">
         <form className="auth-form">
