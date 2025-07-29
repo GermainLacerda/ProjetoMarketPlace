@@ -8,7 +8,7 @@ import Cart from "../pages/cartPage/cartPage.jsx"
 
 function AppRoutes() {
   return (  
-    <BrowserRouter>
+    <BrowserRouter basename="/ProjetoMarketPlace">
       <Routes>
         <Route element={<Home />} >
           <Route path="/" element={<Items />} />
