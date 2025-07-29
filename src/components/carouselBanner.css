@@ -1,0 +1,88 @@
+
+.carousel-container {
+  max-width: 1200px; 
+  margin: 0 auto 25px auto;
+  overflow: hidden; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px; 
+}
+
+
+.carousel-slide img {
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  max-height: 480px; 
+  object-fit: cover; 
+}
+
+
+.carousel .control-arrow.control-prev,
+.carousel .control-arrow.control-next {
+  opacity: 0.7; 
+  background: rgba(0, 0, 0, 0.4); 
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carousel .control-arrow.control-prev:hover,
+.carousel .control-arrow.control-next:hover {
+  opacity: 1; 
+  background: rgba(0, 0, 0, 0.6);
+}
+
+
+.carousel .control-dots {
+  padding: 10px; 
+  bottom: 10px; 
+}
+
+.carousel .control-dots .dot {
+  background: rgba(255, 255, 255, 0.5); 
+  box-shadow: none; 
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s ease;
+}
+
+.carousel .control-dots .dot.selected {
+  background: #007ea7; 
+  transform: scale(1.2); 
+}
+
+
+.carousel .legend {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    margin: 0 auto 15px auto;
+    border-radius: 0; 
+  }
+
+  .carousel-slide img {
+    max-height: 300px; 
+  }
+
+  .carousel .control-arrow.control-prev,
+  .carousel .control-arrow.control-next {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,65 @@
+.NavBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-inline: 20px;
+  background-color: #14213D;
+  margin-bottom: 15px;
+}
+
+.NavBar a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formNavBar{
+  display: flex;
+}
+
+.formNavBar select, .formNavBar input, .formNavBar button{
+  border: 1px solid rgba(56, 56, 56, 1);
+  border-radius: 2px;
+}
+
+.formNavBar select{
+  border-radius: 2px 0 0 2px;
+} 
+.formNavBar button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 2px;
+  border-radius: 0 2px 2px 0;
+}
+
+.formNavBar input{
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  flex: 1;
+  padding-inline: 0.5rem;
+} 
+
+.formNavBar input::placeholder{
+  padding-inline: 0.5rem;
+} 
+
+.loginFormDiv { /* <-- Use este nome de classe aqui */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Ajuste se o form e os links precisam de espaçamento entre eles */
+  align-items: center; /* Para alinhar verticalmente o form, links e carrinho */
+  gap: 20px; /* Adicione um gap para espaçamento entre os elementos filhos */
+}
+
+.loginLinksAndCart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}

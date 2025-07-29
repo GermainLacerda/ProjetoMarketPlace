@@ -1,0 +1,65 @@
+
+
+.footer {
+  background-color: #193777;
+  color: #f0f0f0;
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+  /* position:   fixed;
+  bottom: 0; */ 
+  left: 0;
+  width: 100%;
+  margin-top: 2rem;
+  min-width: 100%;
+
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 0.95rem;
+  color: #cccccc;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer-section a.linkedin-link:hover {
+  text-decoration: underline;
+  color: #0077b5; /* cor do LinkedIn */
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #aaaaaa;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

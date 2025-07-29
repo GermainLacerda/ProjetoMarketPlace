@@ -1,0 +1,95 @@
+/* src/styles/Modal.css */
+
+.modal-overlay {
+  position: fixed; /* Fixa na tela */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que fique acima de tudo */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%; /* Ajusta a largura em telas menores */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative; /* Para posicionar o botão de fechar */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza conteúdo interno */
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #007EA7;
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.modal-content img {
+  max-width: 80%; /* Ajusta a imagem no modal */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  color: #333;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.modal-content .modal-price {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #007EA7;
+  margin-top: 15px;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #888;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.modal-close-button:hover {
+  background-color: #eee;
+  color: #555;
+}
+
+.modalButton button:hover{
+  cursor: pointer;
+  background-color: #00CFC1;
+}
+
+.modalButton button{
+  background-color: #00CFC198;
+  min-height: 2rem;
+  padding-inline: 1rem;
+}
+
+.modalButton{
+  display: flex ;
+  height: 3rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

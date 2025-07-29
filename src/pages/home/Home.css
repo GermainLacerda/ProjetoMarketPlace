@@ -1,0 +1,38 @@
+.homePage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  min-height: 100vh;
+} 
+
+.homePage header {
+  /* Defina a altura do seu header aqui, se for fixa */
+  /* Exemplo: height: 60px; */
+  flex-shrink: 0; /* Impede que o header encolha */
+  /* Adicione seus estilos de background, padding, etc. */
+}
+
+.homePage main {
+  flex-grow: 1; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 20px; 
+
+
+}
+
+.homePage footer {
+  flex-shrink: 0; 
+}
+
+
+
+.items {
+  display: block; 
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px 0;
+}
