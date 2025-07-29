@@ -15,7 +15,7 @@ const register = () => {
   };
   return (
     <div className='registerContainer'>
-      <img src="/Loja-logo.png" alt="pq vc sumiu" />
+      <img src="./Loja-logo.png" alt="" />
       <div class="auth-container">
         <form class="auth-form">
           <h2>Cadastro</h2>

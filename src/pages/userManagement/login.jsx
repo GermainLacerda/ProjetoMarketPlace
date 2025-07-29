@@ -34,7 +34,7 @@ const login = () => {
   return (
     <div className="loginContainer">
 
-      <img src="/Loja-logo.png" alt="" />
+      <img src="./Loja-logo.png" alt="" />
       <div className="auth-container">
         <form className="auth-form">
           <h2>Entrar</h2>
