@@ -9,7 +9,7 @@ import { PiNotebookDuotone } from "react-icons/pi";
 
 import CartIcon from '../CartIcon';
 
-const NavBar = ({ onFilterChange, onSearchChange, currentSearch , cartItemCount}) => {
+const NavBar = ({ onFilterChange, onSearchChange, currentSearch, cartItemCount }) => {
   const [filtroStatus, setStatus] = useState("All");
   const [busca, setBusca] = useState("");
 
@@ -27,7 +27,7 @@ const NavBar = ({ onFilterChange, onSearchChange, currentSearch , cartItemCount}
   return (
     <div className='NavBar'>
       <h1>
-        <Link to='/'>
+        <Link to='/' className='tituloNavBar'>
           <FaShop /> Lojinha do Germain
         </Link>
       </h1>
@@ -38,9 +38,16 @@ const NavBar = ({ onFilterChange, onSearchChange, currentSearch , cartItemCount}
             onChange={handleFilterChange}
           >
             <option value="All">Todos</option>
-            <option value="Cama">Cama</option>
-            <option value="Banho">Banho</option>
-            <option value="Cozinha">Cozinha</option>
+            <option value="Eletrônicos">Eletrônicos</option>
+            <option value="Informática">Informática</option>
+            <option value="Casa e Cozinha">Casa e Cozinha</option>
+            <option value="Moda">Moda</option>
+            <option value="Esporte e Lazer">Esporte e Lazer</option>
+            <option value="Beleza e Saúde">Beleza e Saúde</option>
+            <option value="Brinquedos e Jogos">Brinquedos e Jogos</option>
+            <option value="Automotivo">Automotivo</option>
+            <option value="Ferramentas e Construção">Ferramentas e Construção</option>
+            <option value="Livros">Livros</option>
           </select>
           <input type="text" placeholder='Busque aqui!' value={currentSearch}
             onChange={(e) => onSearchChange(e.target.value)} />
@@ -55,7 +62,7 @@ const NavBar = ({ onFilterChange, onSearchChange, currentSearch , cartItemCount}
           <Link to={"/register"} className='loginLink'>
             <PiNotebookDuotone />Cadastro
           </Link>
-          <CartIcon count={cartItemCount}/>
+          <CartIcon count={cartItemCount} />
         </div>
       </div>
 

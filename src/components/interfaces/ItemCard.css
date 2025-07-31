@@ -1,4 +1,4 @@
-.ItemCard{
+.ItemCard {
   padding: 15px 5px 15px 5px;
   background-color: #007EA7;
   border-radius: 20px;
@@ -13,14 +13,14 @@
   width: 305px;
 }
 
-.itemDiv{
+.itemDiv {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
-.ItemCard h2{
+.ItemCard h2 {
   width: calc(100% + 10px);
   max-width: calc(305px - 10px);
   margin-top: 8px;
@@ -33,12 +33,16 @@
   overflow: hidden;
 }
 
-.ItemCard img{
-  height: 165px;
+.ItemCard img {
+  max-height: 165px;
+  height: auto;
+  max-width: 90%;
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+}
 
-} 
-
-.ItemCard p{
+.ItemCard p {
   margin-top: 8px;
   /* background-color: rgb(49, 49, 49); */
   /* background-color: #193777; */
@@ -48,33 +52,33 @@
   overflow-wrap: break-word;
 }
 
-.ItemCard button{
+.ItemCard button {
   border-radius: 5px;
   border: 0;
   padding-inline: 5px;
 }
 
 
-.ItemCard:hover{
-  background-Color:#005e7e;  
+.ItemCard:hover {
+  background-Color: #005e7e;
   cursor: pointer;
-  transform:translateY(2px) translateX(2px) scale(1.01);
+  transform: translateY(2px) translateX(2px) scale(1.01);
   transition: all 0.2s ease-in-out;
 }
 
-.itemButton button:hover{
+.itemButton button:hover {
   cursor: pointer;
   background-color: #00CFC1;
-  transform:translateY(1px) translateX(1px) scale(1.01);
+  transform: translateY(1px) translateX(1px) scale(1.01);
 }
 
-.itemButton button{
+.itemButton button {
   background-color: #00CFC198;
   min-height: 2rem;
 }
 
-.itemButton{
-  display: flex ;
+.itemButton {
+  display: flex;
   height: 3rem;
   width: 100%;
   align-items: center;

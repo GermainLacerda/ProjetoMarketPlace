@@ -9,7 +9,7 @@ function CartPage() {
 
   
   const totalPrice = cartItems.reduce(
-    (total, item) => total + parseFloat(item.price) * item.quantity,
+    (total, item) => total + parseFloat(item.preco) * item.quantity,
     0
   );
 
@@ -22,7 +22,7 @@ function CartPage() {
     const phoneNumber = "5581997277201"; 
     let message = "Olá! Gostaria de fazer o seguinte pedido:\n\n";
     cartItems.forEach((item, index) => {
-      message += `${index + 1}. ${item.titulo} (Qtde: ${item.quantity}) - R$${(parseFloat(item.price) * item.quantity).toFixed(2).replace('.', ',')}\n`;
+      message += `${index + 1}. ${item.titulo} (Qtde: ${item.quantity}) - R$${(parseFloat(item.preco) * item.quantity).toFixed(2).replace('.', ',')}\n`;
     });
 
     message += `\nTotal do Pedido: R$${totalPrice.toFixed(2).replace('.', ',')}\n`;

@@ -1,124 +1,45 @@
-import { useState, React } from 'react'
+import { useState, React, useEffect } from 'react'
 import ItemCard from '../../components/interfaces/ItemCard.jsx'
 import CarouselBanner from '../../components/CaroseulBanner.jsx'
 import Modal from '../../components/interfaces/ItemModal.jsx'
 import './items.css'
 import { useOutletContext } from 'react-router-dom'
 
-
+import { fetchProducts } from '../../services/api.js'
 
 
 const items = () => {
   const { filtro, busca } = useOutletContext();
 
-   const bannerImages = [
+  const bannerImages = [
     { src: "https://placehold.jp/144/007ea7/F4F4F4/1200x480.png?text=LOJINHA%20DO%20GERMAIN", alt: "Banner 1 - Lojinha do Germain", legend: "Bem-vindo à Lojinha do Germain!" },
     { src: "https://placehold.jp/144/007ea7/F4F4F4/1200x480.png?text=OFERTAS%20IMPERD%C3%8DVEIS", alt: "Banner 2 - Ofertas", legend: "Confira nossas ofertas imperdíveis!" },
     { src: "https://placehold.jp/144/007ea7/F4F4F4/1200x480.png?text=NOVIDADES%20CHEGANDO", alt: "Banner 3 - Novidades", legend: "Novos produtos toda semana!" },
   ];
-  const [testItem, setTestItem] = useState([{
-    id: `125687`,
-    categoria: `Cozinha`,
-    titulo: `Creatina Max Titanium 300G Titanium 300G Titanium 300G`,
-    description: 'Bom para preservação da massa magra',
-    imgLink: `https://m.media-amazon.com/images/I/51gt4U5kD-L._AC_SY240_.jpg`,
-    price: `89.99`
-  },
-  {
-    id: `235498`,
-    categoria: `Cozinha`,
-    titulo: `Whey Max Titanium 900G`,
-    description: 'Ideal para atingir a meta de macro nutrientes diaria',
-    imgLink: `https://m.media-amazon.com/images/I/51iZN0U3omL._AC_SL240_.jpg`,
-    price: `119.99`
-  },
-  {
-    id: `159753`,
-    categoria: `Banho`,
-    titulo: `4 Toalhas Banhão Gigante`,
-    description: 'Super macias 100% algodão',
-    imgLink: `https://m.media-amazon.com/images/I/81Arq7i+7ML._AC_SY300_SX300_.jpg`,
-    price: `116.99`
-  },
-  {
-    id: `952684`,
-    categoria: `Cama`,
-    titulo: `4 Travesseiro 50x70`,
-    description: 'Macios e Fofos, direto da nasa, espuma Alienigena do ben 10',
-    imgLink: `https://m.media-amazon.com/images/I/51hqgfnADeL.__AC_SX300_SY300_QL70_ML2_.jpg`,
-    price: `77.00`
-  }, {
-    id: `125687`,
-    categoria: `Cozinha`,
-    titulo: `Creatina Max Titanium 300G Titanium 300G Titanium 300G`,
-    description: 'Bom para preservação da massa magra',
-    imgLink: `https://m.media-amazon.com/images/I/51gt4U5kD-L._AC_SY240_.jpg`,
-    price: `89.99`
-  },
-  {
-    id: `235498`,
-    categoria: `Cozinha`,
-    titulo: `Whey Max Titanium 900G`,
-    description: 'Ideal para atingir a meta de macro nutrientes diaria',
-    imgLink: `https://m.media-amazon.com/images/I/51iZN0U3omL._AC_SL240_.jpg`,
-    price: `119.99`
-  },
-  {
-    id: `159753`,
-    categoria: `Banho`,
-    titulo: `4 Toalhas Banhão Gigante`,
-    description: 'Super macias 100% algodão',
-    imgLink: `https://m.media-amazon.com/images/I/81Arq7i+7ML._AC_SY300_SX300_.jpg`,
-    price: `116.99`
-  },
-  {
-    id: `952684`,
-    categoria: `Cama`,
-    titulo: `4 Travesseiro 50x70`,
-    description: 'Macios e Fofos, direto da nasa, espuma Alienigena do ben 10',
-    imgLink: `https://m.media-amazon.com/images/I/51hqgfnADeL.__AC_SX300_SY300_QL70_ML2_.jpg`,
-    price: `77.00`
-  }, {
-    id: `125687`,
-    categoria: `Cozinha`,
-    titulo: `Creatina Max Titanium 300G Titanium 300G Titanium 300G`,
-    description: 'Bom para preservação da massa magra',
-    imgLink: `https://m.media-amazon.com/images/I/51gt4U5kD-L._AC_SY240_.jpg`,
-    price: `89.99`
-  },
-  {
-    id: `235498`,
-    categoria: `Cozinha`,
-    titulo: `Whey Max Titanium 900G`,
-    description: 'Ideal para atingir a meta de macro nutrientes diaria',
-    imgLink: `https://m.media-amazon.com/images/I/51iZN0U3omL._AC_SL240_.jpg`,
-    price: `119.99`
-  },
-  {
-    id: `159753`,
-    categoria: `Banho`,
-    titulo: `4 Toalhas Banhão Gigante`,
-    description: 'Super macias 100% algodão',
-    imgLink: `https://m.media-amazon.com/images/I/81Arq7i+7ML._AC_SY300_SX300_.jpg`,
-    price: `116.99`
-  },
-  {
-    id: `952684`,
-    categoria: `Cama`,
-    titulo: `4 Travesseiro 50x70`,
-    description: 'Macios e Fofos, direto da nasa, espuma Alienigena do ben 10',
-    imgLink: `https://m.media-amazon.com/images/I/51hqgfnADeL.__AC_SX300_SY300_QL70_ML2_.jpg`,
-    price: `77.00`
-  }
 
-  ])
-  console.log(filtro)
+
+  const [testItem, setTestItem] = useState([]);
+  useEffect(() => {
+
+    fetchProducts()
+      .then(data => setTestItem(data.data))
+      .catch(err => console.error("Erro ao carregar produtos: ", err))
+  }, []);
+
+  console.log(testItem)
   const itensFiltrados = testItem
     .filter((item) =>
       filtro === 'All' ? true :
-        filtro === 'Cama' ? item.categoria === 'Cama' :
-          filtro === 'Banho' ? item.categoria === 'Banho' :
-            filtro === 'Cozinha' ? item.categoria === 'Cozinha' : false
+        filtro === 'Eletrônicos' ? item.categoria_id.categoria === 'Eletrônicos' :
+          filtro === 'Informática' ? item.categoria_id.categoria === 'Informática' :
+            filtro === 'Casa e Cozinha' ? item.categoria_id.categoria === 'Casa e Cozinha' :
+              filtro === 'Moda' ? item.categoria_id.categoria === 'Moda' :
+                filtro === 'Esporte e Lazer' ? item.categoria_id.categoria === 'Esporte e Lazer' :
+                  filtro === 'Beleza e Saúde' ? item.categoria_id.categoria === 'Beleza e Saúde' :
+                    filtro === 'Brinquedos e Jogos' ? item.categoria_id.categoria === 'Brinquedos e Jogos' :
+                      filtro === 'Automotivo' ? item.categoria_id.categoria === 'Automotivo' :
+                        filtro === 'Ferramentas e Construção' ? item.categoria_id.categoria === 'Ferramentas e Construção' :
+                          filtro === 'Livros' ? item.categoria_id.categoria === 'Livros' : false
     );
 
   const [selectedItem, setSelectedItem] = useState(null); // Estado para o item clicado
@@ -144,8 +65,8 @@ const items = () => {
       }
       <div className='ItensContainer'>
         {testItem.length > 0 && itensFiltrados.filter((item) =>
-            item.titulo.toLowerCase().includes(busca.toLowerCase())
-          ).map((item) =>
+          item.titulo.toLowerCase().includes(busca.toLowerCase())
+        ).map((item) =>
           <div>
             <ItemCard key={item.id} testItem={item} onClick={handleItemClick} />
           </div>

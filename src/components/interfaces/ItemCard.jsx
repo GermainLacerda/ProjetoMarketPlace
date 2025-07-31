@@ -15,10 +15,10 @@ const ItemCard = ({ testItem, onClick }) => {
   return (
     <div className='ItemCard' onClick={() => onClick(testItem)}>
       <div className='itemDiv'>
-        <img src={testItem.imgLink} alt="" />
+        <img src={testItem.imagem} alt="" />
         <h2>{testItem.titulo}</h2>
-        <p>{testItem.description}</p>
-        <p>R${testItem.price.replace('.',',')}</p>
+        <p>{testItem.descricao}</p>
+        <p>R${testItem.preco.replace('.',',')}</p>
       </div>
       <div className='itemButton'>
         <button onClick={handleAddToCartClick}>Adicionar ao carrinho</button>

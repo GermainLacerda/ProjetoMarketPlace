@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import './register.css'
 
+import Logo from '../../../public/Loja-logo.png'
+
 const register = () => {
 
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ const register = () => {
   };
   return (
     <div className='registerContainer'>
-      <img src="./Loja-logo.png" alt="" />
+      <img src={Logo} alt="" />
       <div class="auth-container">
         <form class="auth-form">
           <h2>Cadastro</h2>

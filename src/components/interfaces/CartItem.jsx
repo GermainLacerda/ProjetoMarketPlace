@@ -17,10 +17,10 @@ function CartItem({ item, onRemove, onUpdateQuantity }) {
 
   return (
     <div className="cart-item">
-      <img src={item.imgLink} alt={item.titulo} className="cart-item-image" />
+      <img src={item.imagem} alt={item.titulo} className="cart-item-image" />
       <div className="cart-item-details">
         <h3>{item.titulo}</h3>
-        <p>Preço: R${parseFloat(item.price).toFixed(2).replace('.', ',')}</p>
+        <p>Preço: R${parseFloat(item.preco).toFixed(2).replace('.', ',')}</p>
         <div className="cart-item-actions">
           <label htmlFor={`quantity-${item.id}`}>Quantidade:</label>
           <input

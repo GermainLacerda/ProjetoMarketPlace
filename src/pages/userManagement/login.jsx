@@ -2,7 +2,7 @@ import { React } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import { Link } from 'react-router-dom'
-
+import Logo from '../../../public/Loja-logo.png'
 import './login.css'
 
 const login = () => {
@@ -10,7 +10,7 @@ const login = () => {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    event.preventDefault()
+    e.preventDefault();
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
 
@@ -34,7 +34,7 @@ const login = () => {
   return (
     <div className="loginContainer">
 
-      <img src="./Loja-logo.png" alt="" />
+      <img src={Logo} alt="" />
       <div className="auth-container">
         <form className="auth-form">
           <h2>Entrar</h2>
