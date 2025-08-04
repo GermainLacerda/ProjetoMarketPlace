@@ -9,7 +9,7 @@ const login = () => {
 
   const navigate = useNavigate();
 
-  const handleLoginClick = () => {
+  const handleLoginClick = async (e) => {
     e.preventDefault();
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
