@@ -94,3 +94,13 @@
 .error-box p {
   margin: 4px 0;
 }
+
+.success {
+  background-color: #e6ffed;
+  border: 1px solid #52c41a;
+  color: #237804;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+}

@@ -1,23 +1,26 @@
-import { React, useState } from 'react'
+import { React, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+
+import {AuthContext} from '../../auth/AuthContext';
 
 import { Link } from 'react-router-dom'
 import Logo from '../../../public/Loja-logo.png'
 
-import {loginUser} from '../../services/api'
+import { loginUser } from '../../services/api'
 import './login.css'
 
 const login = () => {
-
+  const {setUser} = useContext(AuthContext);
 
   const [errors, setErrors] = useState('');
+  const [successMsg, setSuccessMsg] = useState('')
 
   const navigate = useNavigate();
 
   const handleLoginClick = async (e) => {
     e.preventDefault();
     setErrors([]);
-    
+
     const newErrors = [];
 
     const emailInput = document.getElementById('email');
@@ -29,15 +32,13 @@ const login = () => {
     // 4. Validar os campos
     if (email === '' || password === '') {
       newErrors.push('Todos os campos são obrigatórios.');
-      return; // Interrompe a execução se os campos estiverem vazios
-    } 
-
-    if (!email.includes('@') || (!email.includes('.com') && !email.includes('.br')) ){
-      newErrors.push('Formato de email inválido!');
-      return;
     }
 
-    if(password.length<8){
+    if (!email.includes('@') || (!email.includes('.com') && !email.includes('.br'))) {
+      newErrors.push('Formato de email inválido!');
+    }
+
+    if (password.length < 8) {
       newErrors.push("A senha deve ter ao menos 8 caracteres!");
     }
 
@@ -46,13 +47,18 @@ const login = () => {
       return;
     }
 
-      try {
-        const data = await loginUser (email, password);
+    try {
+      
+      const data = await loginUser(email, password);
+      if (data && data.user) {
+        setUser(data.user)
+        setSuccessMsg('Log in efetuado com sucesso!');
         navigate('/');
-      } catch (err) {
-        setErrors([err.response?.data?.message || 'Erro na tentativa de entrar com este usuário.']);
       }
+    } catch (err) {
+      setErrors([err.response?.data?.message] || 'Erro na tentativa de entrar com este usuário.');
     }
+  }
 
   return (
     <div className="loginContainer">
@@ -67,6 +73,9 @@ const login = () => {
               {errors.map((err, i) => <p key={i}>{err}</p>)}
             </div>
           )}
+
+
+          {successMsg && <p className="success">{successMsg}</p>}
 
           <label for="email">Email</label>
           <input type="email" id="email" placeholder="Digite seu email" required />

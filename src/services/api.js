@@ -31,6 +31,16 @@ export const fetchCategories = async () => {
   }
 };
 
+export const fetchCurrentUser = async () =>{
+  try {
+    
+    const response = await api.get('/me');
+    return response.data;
+  } catch (error){
+    console.error('Erro ao validar usuário logado', error);
+    throw error;
+  }
+}
 
 //Requisições posts do backend
 export const registerUser = async (userName, userEmail, userPassword, userPasswordConfirmation) => {
