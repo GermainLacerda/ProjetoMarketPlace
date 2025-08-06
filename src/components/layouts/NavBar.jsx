@@ -1,10 +1,12 @@
 
 import './NavBar.css';
-import { useState, React } from 'react'
+import { useState, React, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { FaShop, FaMagnifyingGlass } from "react-icons/fa6";
 import { IoIosLogIn } from "react-icons/io";
 import { PiNotebookDuotone } from "react-icons/pi";
+import { AuthContext } from '../../auth/AuthContext';
+import { CgProfile } from "react-icons/cg";
 
 
 import CartIcon from '../CartIcon';
@@ -12,6 +14,7 @@ import CartIcon from '../CartIcon';
 const NavBar = ({ onFilterChange, onSearchChange, currentSearch, cartItemCount }) => {
   const [filtroStatus, setStatus] = useState("All");
   const [busca, setBusca] = useState("");
+  const {user} = useContext(AuthContext);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -55,7 +58,7 @@ const NavBar = ({ onFilterChange, onSearchChange, currentSearch, cartItemCount }
             <FaMagnifyingGlass />
           </button> */}
         </form>
-        <div className='loginLinksAndCart '>
+        {(!user ? <div className='loginLinksAndCart ' >
           <Link to={"/login"} className='loginLink'>
             <IoIosLogIn />Login
           </Link>
@@ -63,7 +66,12 @@ const NavBar = ({ onFilterChange, onSearchChange, currentSearch, cartItemCount }
             <PiNotebookDuotone />Cadastro
           </Link>
           <CartIcon count={cartItemCount} />
-        </div>
+        </div>: <div className='loginLinksAndCart ' >
+          <Link to={"/login"} className='loginLink'>
+            <CgProfile /> perfil
+          </Link>
+          <CartIcon count={cartItemCount} />
+        </div>)}
       </div>
 
     </div>
