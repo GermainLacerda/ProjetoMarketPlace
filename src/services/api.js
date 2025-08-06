@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {api, csrf} from './axiosInstance';
 
 const apiURL = import.meta.env.VITE_API_URL;
 
@@ -52,21 +53,21 @@ export const registerUser = async (userName, userEmail, userPassword, userPasswo
 
 
 export const loginUser = async (userEmail, userPassword) => {
-  console.log('Buscando categorias com Axios...');
+  console.log('Buscando login com Axios...');
   try {
-    const loginURL = `${apiURL}/login`
-    const response = await axios.post(loginURL, {
+
+    await csrf.get('/sanctum/csrf-cookie');
+
+    const loginURL = `${apiURL}/login`;
+    const response = await api.post(loginURL, {
       email: userEmail,
       password: userPassword
     });
 
-    const { user, token } = response.data;
+    const { user } = response.data;
 
     console.log(user);
-
-    localStorage.setItem('authToken', token);
-
-    return { user, token };
+    return { user };
   } catch (error) {
     console.error('Erro ao fazer login:', error);
     throw error;

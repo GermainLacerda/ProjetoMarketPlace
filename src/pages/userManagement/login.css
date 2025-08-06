@@ -80,3 +80,17 @@
   }
 }
   
+
+.error-box {
+  background-color: #ffe5e5;
+  border: 1px solid #ff4d4f;
+  color: #a80000;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.error-box p {
+  margin: 4px 0;
+}

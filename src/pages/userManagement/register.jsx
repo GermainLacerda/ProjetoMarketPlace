@@ -27,10 +27,10 @@ const register = () => {
     if (!name || !email || !password || !confirmPwd) {
       newErrors.push('Todos os campos são obrigatórios.');
     }
-    if (email && !email.includes('@')) {
-      newErrors.push('E-mail inválido. Deve conter “@”.');
+    if (email && (!email.includes('@') || (!email.includes('.com') && !email.includes('.br')))) {
+      newErrors.push('E-mail inválido. Deve conter “@” e ".com" ou ".br" no final');
     }
-    if (password && password.length < 6) {
+    if (password && password.length < 8) {
       newErrors.push('A senha deve ter ao menos 6 caracteres.');
     }
     if (password !== confirmPwd) {
@@ -48,7 +48,7 @@ const register = () => {
       navigate('/Login');
       // opcional: redirecionar, limpar form, etc.
     } catch (err) {
-      setErrors([err.response?.data?.message || 'Erro ao cadastrar usuário.']);
+      setErrors([err.response?.data?.message + " " + err.response?.data?.errors?.email || 'Erro ao cadastrar usuário.']);
     }
   };
   return (
